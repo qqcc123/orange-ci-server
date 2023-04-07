@@ -1,4 +1,4 @@
-FROM node:14.17.3-alpine3.14
+FROM node:current-alpine3.16
 
 WORKDIR /usr/src/orange-ci-server 
 
