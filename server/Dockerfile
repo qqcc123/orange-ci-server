@@ -7,4 +7,4 @@ COPY package.json package-lock.json ./
 RUN npm install
 COPY ./dist/ ./dist
 
-CMD [ "npm run start" ]
+CMD ["npm","start"]
