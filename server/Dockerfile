@@ -4,6 +4,8 @@ WORKDIR /usr/src/orange-ci-server
 
 COPY package.json package-lock.json tsconfig.json ./
 RUN npm install
-COPY . .
+COPY src .
+RUN npm build-ts
 
-CMD ["npm","start"]
+COPY dist .
+CMD ["npm","serve"]
