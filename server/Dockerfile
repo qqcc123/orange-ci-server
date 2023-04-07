@@ -4,6 +4,6 @@ WORKDIR /usr/src/orange-ci-server
 
 COPY package.json package-lock.json tsconfig.json ./
 RUN npm install
-COPY ./dist/ ./dist
+COPY . .
 
 CMD ["npm","start"]
