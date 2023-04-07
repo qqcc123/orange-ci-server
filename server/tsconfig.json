@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES6",       //"target" 则指定编译后的代码应该采用 ES6 语法 (是否可以采用commonjs格式导出导入，但是语法使用ES6)
+        "module": "commonjs",  //"module" 属性用于指定编译后的模块格式
+        "outDir": "dist", 
+        "esModuleInterop": true, //"esModuleInterop" 是 TypeScript 编译器中的一个选项，用于解决在使用 CommonJS 模块格式时可能出现的模块导入和导出问题
+        "sourceMap": true,
+        "baseUrl": ".",  //用于指明所有非相对路径的模块都应该从哪里开始解析
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "@/*": ["src/*"],  //@/" 表示以 "@" 开头的模块名将被映射到 "src/" 目录下
+            "*": ["node_modules/*", "src/types"]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+}
+
+//"module" 属性被设置为 "commonjs"，表示使用 CommonJS 模块格式。"target" 则指定编译后的代码应该采用 ES6 语法。这样可以在 Node.js 环境下运行编译后的代码，同时也能够利用 ES6 的一些新特性来提高开发效率
+//在 Node.js 中，CommonJS 是默认的模块格式，它采用 require 和 module.exports 来导入和导出模块。然而，在一些情况下，使用 import 和 export 语句更方便，例如使用第三方模块时。此时，可以通过设置 "esModuleInterop" 选项来将 import 进行转换，使之能够与 CommonJS 兼容

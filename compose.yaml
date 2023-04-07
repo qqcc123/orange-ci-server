@@ -1,0 +1,14 @@
+services:
+  web1:
+    build: ./server
+    hostname: web1
+    ports:
+      - '81:3000'
+  nginx:
+    build: ./nginx
+    ports: 
+      - '80:80'
+    depends_on:
+      - server
+
+
