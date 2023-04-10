@@ -7,5 +7,4 @@ RUN npm install
 COPY ./src ./src
 RUN npm run build-ts
 
-COPY ./dist ./dist
 CMD ["npm","start"]
