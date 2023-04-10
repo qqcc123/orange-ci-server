@@ -24,7 +24,7 @@ app.post("/", (req: Request, res: Response, next: NextFunction) => {
         console.log("method:", method);
         console.log("URL:", url);
     } else {
-        console.log("no vaild headers");
+        console.log("no vaild headers: ", headers);
     }
     
     res.send(url);
