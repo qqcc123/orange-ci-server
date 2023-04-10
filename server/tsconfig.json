@@ -15,6 +15,9 @@
     "include": [
         "src/**/*"
     ],
+    "exclude": [
+        "dist"
+    ]
 }
 
 //"module" 属性被设置为 "commonjs"，表示使用 CommonJS 模块格式。"target" 则指定编译后的代码应该采用 ES6 语法。这样可以在 Node.js 环境下运行编译后的代码，同时也能够利用 ES6 的一些新特性来提高开发效率
