@@ -7,13 +7,27 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false }))
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
-    console.log("req /")
-    res.send("11111 new");
+    const headers = req.headers;
+    if (headers["accept-encoding"]) {
+        console.log("accept-encoding: ", headers["accept-encoding"])
+    }
+    res.send(new Date().toLocaleTimeString());
 })
 
 app.post("/", (req: Request, res: Response, next: NextFunction) => {
-    console.log("post /")
-    res.send("22222");
+    const headers = req.headers;
+    const method = headers["method"];
+    const gitEvent = headers["X-GitHub-Event"];
+    const url = headers["URL"]
+    if (gitEvent) { 
+        console.log("git_event:", gitEvent);
+        console.log("method:", method);
+        console.log("URL:", url);
+    } else {
+        console.log("no vaild headers");
+    }
+    
+    res.send(url);
 })
 
 const server = app.listen(3000, () => {
