@@ -8,6 +8,11 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
     res.send("11111");
 })
 
+app.post("/", (req: Request, res: Response, next: NextFunction) => {
+    console.log("post /")
+    res.send("22222");
+})
+
 const server = app.listen(3000, () => {
     console.log("listen port 3000")
 })
