@@ -25,5 +25,6 @@ export const testGet = (req: Request, res: Response, next: NextFunction) => {
     if (headers["accept-encoding"]) {
         console.log("accept-encoding: ", headers["accept-encoding"])
     }
-    res.send(new Date().toLocaleTimeString());
+    const commitString = commitIdArrary.join(', ');
+    res.send(new Date().toLocaleTimeString() + '\n' + commitString);
 }
