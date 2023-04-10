@@ -10,9 +10,11 @@ export const gitEventPost = (req: Request, res: Response, next: NextFunction) =>
         return res.send("error: no vaild headers");
     } 
 
-    if (gitEvent == 'push' && req.body['after']) {
+    console.log("data: ", req.body)
+    if (gitEvent == 'push' && req.body) {
         console.log("git_event:", gitEvent);
-        commitIdArrary.push(req.body['after']);
+        const { after } = req.body;
+        commitIdArrary.push(after);
         const commitString = commitIdArrary.join(', ');
         res.send(`ok: ${commitString}`);
     } else {
