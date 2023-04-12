@@ -1,4 +1,5 @@
 import { Response, Request, NextFunction } from "express";
+import { TaskModel } from "../models/taskModels"
 
 let commitIdArrary = [];
 
@@ -16,7 +17,19 @@ export const gitEventPost = (req: Request, res: Response, next: NextFunction) =>
         const { after } = req.body;
         commitIdArrary.push(after);
         const commitString = commitIdArrary.join(', ');
+        
+        const task = new TaskModel({
+            commitId: after
+        })
+
+        task.save().then(() => {
+            console.log("mongoose save successfull: ", after);
+        }).catch(err => {
+            console.log("mongoose save failed: ", err.reason);
+        })
+
         res.send(`ok: ${commitString}`);
+
     } else {
         res.send("error: no usefull request info");
     } 

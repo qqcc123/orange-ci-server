@@ -4,9 +4,6 @@ services:
       context: ./server
       no_cache: true
     hostname: web1
-
-
-    
     ports:
       - '81:3000'
   nginx:
