@@ -1,12 +1,11 @@
 import dotenv from "dotenv" //export function 可以以此种方式导出？不用import * as dotenv from "dotenv"
-// import fs from "fs"
-const fs = require("fs")
+import fs from "fs"
 import { DotenvConfigOutput } from "dotenv"
 
 let output: DotenvConfigOutput;
 
-if (fs.existsSync(".env", { dot: true })) {
-    output = dotenv.config({ path: ".env" });
+if (fs.existsSync("env")) {
+    output = dotenv.config({ path: "env" });
 } else {
     console.log("not find env file !!! ")
 }
